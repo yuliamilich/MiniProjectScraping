@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding='UTF-8'?>
+<harvester>
+   htzone.co.il/
+   <url>      <param>email=email1@gmail.com</param>
+      <param>password=123</param>
+      <param>remember=on</param>
+      <param>secure_login=lWT881g4tokIks7FPVqmboxiu1xXktnGqhPzi6DLvYuPqCvg</param>
+      <param>file=user_service</param>
+      <param>action=login</param>
+   </url>
+   <url>      <param>email=email2@gmail.com</param>
+      <param>password=aaaaaa</param>
+      <param>remember=on</param>
+      <param>secure_login=lWT881g4tokIks7FPVqmboxiu1xXktnGqhPzi6DLvYuPqCvg</param>
+      <param>file=user_service</param>
+      <param>action=login</param>
+   </url>
+   <url>      <param>email=email1@gmail.com</param>
+      <param>password=aaaaaa</param>
+      <param>remember=on</param>
+      <param>secure_login=lWT881g4tokIks7FPVqmboxiu1xXktnGqhPzi6DLvYuPqCvg</param>
+      <param>file=user_service</param>
+      <param>action=login</param>
+   </url>
+   <url>      <param>email=email2@gmail.com</param>
+      <param>password=aaaaaa</param>
+      <param>remember=on</param>
+      <param>secure_login=lWT881g4tokIks7FPVqmboxiu1xXktnGqhPzi6DLvYuPqCvg</param>
+      <param>file=user_service</param>
+      <param>action=login</param>
+   </url>
+   
+   <url>      <param>email=</param>
+      <param>password=empty email field</param>
+      <param>remember=on</param>
+      <param>secure_login=lWT881g4tokIks7FPVqmboxiu1xXktnGqhPzi6DLvYuPqCvg</param>
+      <param>file=user_service</param>
+      <param>action=login</param>
+   </url>
+   
+   <url>      <param>email=empty password field@gmail.com</param>
+      <param>password=</param>
+      <param>remember=on</param>
+      <param>secure_login=lWT881g4tokIks7FPVqmboxiu1xXktnGqhPzi6DLvYuPqCvg</param>
+      <param>file=user_service</param>
+      <param>action=login</param>
+   </url>
+   
+   <url>      <param></param>
+      <param>password=no email field at all</param>
+      <param>remember=on</param>
+      <param>secure_login=lWT881g4tokIks7FPVqmboxiu1xXktnGqhPzi6DLvYuPqCvg</param>
+      <param>file=user_service</param>
+      <param>action=login</param>
+   </url>
+
+   
+   <url>      <param>email=no_password_field@gmail.com</param>
+      <param></param>
+      <param>remember=on</param>
+      <param>secure_login=lWT881g4tokIks7FPVqmboxiu1xXktnGqhPzi6DLvYuPqCvg</param>
+      <param>file=user_service</param>
+      <param>action=login</param>
+   </url>
+</harvester>
