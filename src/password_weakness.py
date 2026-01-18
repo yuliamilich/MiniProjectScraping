@@ -1,17 +1,9 @@
 from pathlib import Path
-from password_strength import PasswordPolicy, PasswordStats
+from password_strength import PasswordStats
 
 def check_password_strength(password):
     stats = PasswordStats(password)
-    print(f"Password Strength Score: {stats.strength()}")
-
-    # Check against a specific policy
-    policy = PasswordPolicy.from_names(strength=0.20) # Requires a score of at least 0.5
-    results = policy.test(password)
-    if results:
-        print(f"Password failed policy check. Issues: {results}")
-    else:
-        print("Password passes policy check.")
+    return stats
 
 def check_common_password(password, weak_passwords_path=None):
     """Return True if the password is found in the weak password list."""

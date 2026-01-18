@@ -22,3 +22,6 @@ wheels/
 
 # Folder to ignore
 /SharedDir/reports/
+
+.env
+src/.env

@@ -1,15 +1,9 @@
-# <input type="text" id="global-search" placeholder="Search SocialBook" class="bg-[#F0F2F5] rounded-full pl-10 pr-4 py-2 w-full focus:outline-none focus:ring-1 focus:ring-blue-500 transition-all">
-
-# to run the page: python -m http.server 8000 (from the folder with the index.html)
-
 import time
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
-
-# Assumptions: name is not Null. 
 
 # find and write into search bar
 def type_searchbar(wait, name):
@@ -55,7 +49,7 @@ def get_company(person_name):
         print("Error: Name cannot be empty")
         return None
 
-    driver = webdriver.Chrome()  # or Firefox()
+    driver = webdriver.Chrome() 
 
     wait = WebDriverWait(driver, 10)
 
@@ -74,5 +68,3 @@ def get_company(person_name):
     
     print(company)
     return company
-
-get_company("Yulia Milich")
