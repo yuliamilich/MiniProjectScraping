@@ -21,8 +21,6 @@ def receive_new_report(path_to_reports, shutdown):
     observer = Observer()
     observer.schedule(event_handler, path_to_reports, recursive=False)
     observer.start()
-    
-    print(f"Monitoring directory: {path_to_reports}")
 
     try:
         while not shutdown.is_set():

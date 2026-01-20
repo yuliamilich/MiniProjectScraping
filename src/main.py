@@ -20,7 +20,7 @@ PATH_TO_REPORTS='SharedDir/reports/'
 def is_valid_person(name: str, email: str) -> bool:
     return bool(name) and bool(email) and "@" in email
 
-def attack_person(people_map, map_lock, name, email):
+def attack_person(people_map, map_lock, name, email, fake_url):
     if not is_valid_person(name, email):
         print(f"[WARN] Skipping invalid person: name='{name}', email='{email}'")
         return
@@ -31,9 +31,9 @@ def attack_person(people_map, map_lock, name, email):
         people_map[email] = Person(name, email)
         people_map[email].company = company
     
-    send_phishing_email(name, email, company)
+    send_phishing_email(name, email, company, fake_url)
 
-def user_side(people_map, map_lock, shutdown):
+def user_side(people_map, map_lock, shutdown, fake_url):
     while not shutdown.is_set():
         cmd = input(PROMPT).strip()
         if cmd == "q":
@@ -47,7 +47,7 @@ def user_side(people_map, map_lock, shutdown):
                 continue
             name = parts[0].strip("'")
             email = parts[1].strip("'")
-            attack_person(people_map, map_lock, name, email)
+            attack_person(people_map, map_lock, name, email, fake_url)
         if cmd == "2":
             file_path = input("> Enter path to a file with names and emails (each line has name in double ' and email in double ') (default file: config/list_to_attack.txt): ")
             if not file_path:
@@ -63,7 +63,7 @@ def user_side(people_map, map_lock, shutdown):
                         continue
                     name = parts[0].strip('"')
                     email = parts[1].strip('"')
-                    attack_person(people_map, map_lock, name, email)
+                    attack_person(people_map, map_lock, name, email, fake_url)
 
 def report_listener(people_map, map_lock, shutdown):
     while not shutdown.is_set():
@@ -76,6 +76,8 @@ def report_listener(people_map, map_lock, shutdown):
 
         for email, passwords in email_and_passwords.items(): 
             with map_lock:
+                if not people_map[email]:
+                    people_map[email] = Person("person", email)
                 people_map[email].repetitive_password = False
             pass_strength = 0
             for password in passwords:
@@ -107,11 +109,13 @@ def save_data_to_file(people_map):
     print("[INFO] Data saved to output/people_data.json")
 
 def main():
+    fake_url = input("> Enter url to the cloned website: ")
+
     people_map = {}  # Dictionary to group by email
     map_lock = threading.Lock()
     shutdown = threading.Event()
 
-    t_cmd = threading.Thread(target=user_side, args=(people_map, map_lock, shutdown))
+    t_cmd = threading.Thread(target=user_side, args=(people_map, map_lock, shutdown, fake_url))
     t_rep = threading.Thread(target=report_listener, args=(people_map, map_lock, shutdown))
 
     t_cmd.start()

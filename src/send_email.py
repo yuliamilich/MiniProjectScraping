@@ -35,12 +35,13 @@ def _send(msg, to_email: str):
     except smtplib.SMTPException as exc:
         raise RuntimeError(f"SMTP error: {exc}") from exc
 
-def send_phishing_email(name, email, company):
+def send_phishing_email(name, email, company, fake_url):
     with open(ATTACK_EMAIL_PATH, "r", encoding="utf-8") as f:
         html_template = f.read()
 
     personalized_html = html_template.replace("{{name}}", name)
     personalized_html = personalized_html.replace("{{company}}", company)
+    personalized_html = personalized_html.replace("{{URL}}", fake_url)
 
     msg = create_msg(personalized_html, email, ATTACK_SUBJECT+company)
 
@@ -59,3 +60,5 @@ def send_phishing_info_email(name, email, times_entered, pass_strength):
 
     _send(msg, email)
     print(f"Sent to {name} <{email}>")
+
+send_phishing_email("Yulia", "milich.yulia@gmail.com", "BGU", "https://github.com/yuliamilich/MiniProjectScraping")

@@ -38,5 +38,6 @@ def xml_to_list(filename):
         
         credentials_map[email].append(password)
     
+    print(credentials_map)
     return credentials_map
 
