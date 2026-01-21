@@ -1,1 +1,32 @@
-{}
+{
+  "milich.yulia@gmail.com": {
+    "name": "Yulia Milich",
+    "email": "milich.yulia@gmail.com",
+    "company": "Ben-Gurion University",
+    "passwords": [
+      "qwerty"
+    ],
+    "password_score": 0.17233083320907958,
+    "repetitive_password": true
+  },
+  "milichyulia@gmail.com": {
+    "name": "Yulia Milich",
+    "email": "milichyulia@gmail.com",
+    "company": "Ben-Gurion University",
+    "passwords": [
+      "abcd123456"
+    ],
+    "password_score": 0.3923270274566142,
+    "repetitive_password": true
+  },
+  "mi.lich.yulia@gmail.com": {
+    "name": "person",
+    "email": "mi.lich.yulia@gmail.com",
+    "company": "",
+    "passwords": [
+      "123456!"
+    ],
+    "password_score": 0.21834982705279715,
+    "repetitive_password": true
+  }
+}

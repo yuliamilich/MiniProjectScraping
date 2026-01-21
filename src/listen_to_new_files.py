@@ -10,7 +10,7 @@ class NewFileHandler(FileSystemEventHandler):
     def on_created(self, event):
         if not event.is_directory:
             print(f"New report file: {event.src_path}")
-            return event.src_path
+            self.new_file = event.src_path
         
 def receive_new_report(path_to_reports, shutdown):
     if not os.path.exists(path_to_reports):

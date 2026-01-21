@@ -40,4 +40,3 @@ def xml_to_list(filename):
     
     print(credentials_map)
     return credentials_map
-

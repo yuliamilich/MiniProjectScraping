@@ -6,6 +6,7 @@ from password_weakness import check_common_password, check_password_strength
 from listen_to_new_files import receive_new_report
 import threading
 import json
+import time
 
 PROMPT = (
     "Choose from these options: "
@@ -72,11 +73,14 @@ def report_listener(people_map, map_lock, shutdown):
         if not report_file:
             continue
 
+        # To make sure the file has finished being coppied to SharedDir.
+        time.sleep(1)
+
         email_and_passwords = xml_to_list(report_file)
 
         for email, passwords in email_and_passwords.items(): 
             with map_lock:
-                if not people_map[email]:
+                if email not in people_map:
                     people_map[email] = Person("person", email)
                 people_map[email].repetitive_password = False
             pass_strength = 0

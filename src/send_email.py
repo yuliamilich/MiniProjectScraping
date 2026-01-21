@@ -60,5 +60,3 @@ def send_phishing_info_email(name, email, times_entered, pass_strength):
 
     _send(msg, email)
     print(f"Sent to {name} <{email}>")
-
-send_phishing_email("Yulia", "milich.yulia@gmail.com", "BGU", "https://github.com/yuliamilich/MiniProjectScraping")
