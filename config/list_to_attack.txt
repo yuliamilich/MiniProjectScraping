@@ -1,2 +1,2 @@
-"Yulia Milich" "milich.yulia@gmail.com"
-"Yulia Milich" "milichyulia@gmail.com"
+"name1 name1" "email1"
+"name2 name2" "email2"
